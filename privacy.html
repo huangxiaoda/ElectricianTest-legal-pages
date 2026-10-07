@@ -8,62 +8,78 @@
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; color: #333; }
         h1, h2 { color: #1a2a6c; }
         .last-updated { color: #666; font-size: 0.9em; margin-bottom: 30px; }
+        .back-btn {
+            background: #007aff; color: white; border: none;
+            padding: 12px 24px; border-radius: 8px;
+            font-size: 16px; cursor: pointer;
+        }
     </style>
 </head>
 <body>
-   <!-- 增加返回键按钮 -->
+
 <div style="text-align: left; margin-top: 20px; margin-bottom: 10px;">
-    <button onclick="goBackToApp()" style="background: #007aff; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer;">← Back to Purchase</button>
+    <button class="back-btn" onclick="goBackToApp()">← Back to App</button>
 </div>
-    
-    <h1>Privacy Policy</h1>
-    <div class="last-updated">Last Updated: April 11, 2026</div>
 
-    <p>Electrician Exam Prep ("we," "our," or "us") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application ("App").</p>
+<h1>Privacy Policy</h1>
+<div class="last-updated">Last Updated: April 11, 2026</div>
 
-    <h2>1. Information We Collect</h2>
-    <p><strong>Personal Information:</strong> When you create an account, we may collect your name and email address. If you choose to provide it, we may also collect your exam progress, answers to questions, and mistakes history.</p>
-    <p><strong>Usage Data:</strong> We automatically collect information about your interactions with the App, such as which questions you answer, time spent, and feature usage.</p>
-    <p><strong>Device Information:</strong> We may collect device model, operating system, unique device identifiers, and IP address.</p>
+<p>Electrician Exam Prep ("we," "our," or "us") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application ("App").</p>
 
-    <h2>2. How We Use Your Information</h2>
-    <ul>
-        <li>To provide and personalize your learning experience (track progress, save mistakes).</li>
-        <li>To communicate with you about your account, updates, and promotions (you may opt out).</li>
-        <li>To improve the App and analyze usage patterns.</li>
-        <li>To detect and prevent fraud or security issues.</li>
-    </ul>
+<h2>1. Information We Collect</h2>
+<p><strong>Personal Information:</strong> When you create an account, we may collect your name and email address. If you choose to provide it, we may also collect your exam progress, answers to questions, and mistakes history.</p>
+<p><strong>Usage Data:</strong> We automatically collect information about your interactions with the App, such as which questions you answer, time spent, and feature usage.</p>
+<p><strong>Device Information:</strong> We may collect device model, operating system, unique device identifiers, and IP address.</p>
 
-    <h2>3. Sharing Your Information</h2>
-    <p>We do not sell your personal information. We may share data with:</p>
-    <ul>
-        <li><strong>Service Providers:</strong> cloud hosting (e.g., AWS), analytics tools (e.g., Google Analytics).</li>
-        <li><strong>Legal Requirements:</strong> If required by law or to protect our rights.</li>
-    </ul>
+<h2>2. How We Use Your Information</h2>
+<ul>
+    <li>To provide and personalize your learning experience (track progress, save mistakes).</li>
+    <li>To communicate with you about your account, updates, and promotions (you may opt out).</li>
+    <li>To improve the App and analyze usage patterns.</li>
+    <li>To detect and prevent fraud or security issues.</li>
+</ul>
 
-    <h2>4. Data Security</h2>
-    <p>We implement industry-standard security measures to protect your data. However, no transmission over the internet is 100% secure.</p>
+<h2>3. Sharing Your Information</h2>
+<p>We do not sell your personal information. We may share data with:</p>
+<ul>
+    <li><strong>Service Providers:</strong> cloud hosting (e.g., AWS), analytics tools (e.g., Google Analytics).</li>
+    <li><strong>Legal Requirements:</strong> If required by law or to protect our rights.</li>
+</ul>
 
-    <h2>5. Your Rights</h2>
-    <p>Depending on your location (e.g., California, EU), you may have rights to access, correct, delete, or restrict processing of your personal data. To exercise these rights, contact us at <strong>lord_huang@nobalead.com</strong>.</p>
+<h2>4. Data Security</h2>
+<p>We implement industry-standard security measures to protect your data. However, no transmission over the internet is 100% secure.</p>
 
-    <h2>6. Children's Privacy</h2>
-    <p>Our App is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+<h2>5. Your Rights</h2>
+<p>Depending on your location (e.g., California, EU), you may have rights to access, correct, delete, or restrict processing of your personal data. To exercise these rights, contact us at <strong>lord_huang@nobalead.com</strong>.</p>
 
-    <h2>7. International Data Transfers</h2>
-    <p>Your information may be transferred to and processed in the United States or other countries where our servers or service providers are located.</p>
+<h2>6. Children's Privacy</h2>
+<p>Our App is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
 
-    <h2>8. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy periodically. We will notify you of material changes via the App or email.</p>
+<h2>7. International Data Transfers</h2>
+<p>Your information may be transferred to and processed in the United States or other countries where our servers or service providers are located.</p>
 
-    <h2>9. Contact Us</h2>
-    <p>If you have questions about this Privacy Policy, please contact us at:<strong>lord_huang@nobalead.com</strong>.</p>
+<h2>8. Changes to This Policy</h2>
+<p>We may update this Privacy Policy periodically. We will notify you of material changes via the App or email.</p>
 
+<h2>9. Contact Us</h2>
+<p>If you have questions about this Privacy Policy, please contact us at: <strong>lord_huang@nobalead.com</strong>.</p>
 
 <script>
 function goBackToApp() {
-    // 跳回主页面，并在 URL 中添加参数 openModal=true
-    window.location.href = 'index.html?openModal=true';
+    // HBuilderX 5+App 环境：关闭当前 WebView，回到主页
+    if (typeof plus !== 'undefined' && plus.webview) {
+        var current = plus.webview.currentWebview();
+        if (current) {
+            current.close();
+            return;
+        }
+    }
+    // 浏览器环境：返回上一页
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = 'index.html';
+    }
 }
 </script>
 
