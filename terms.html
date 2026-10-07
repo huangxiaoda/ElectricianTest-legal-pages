@@ -8,60 +8,70 @@
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; color: #333; }
         h1, h2 { color: #1a2a6c; }
         .last-updated { color: #666; font-size: 0.9em; margin-bottom: 30px; }
-        
+        .back-btn {
+            background: #007aff; color: white; border: none;
+            padding: 12px 24px; border-radius: 8px;
+            font-size: 16px; cursor: pointer;
+        }
     </style>
 </head>
 <body>
-   <!-- 增加返回键按钮 -->
-    <div style="text-align: left; margin-top: 20px; margin-bottom: 10px;">
-        <button onclick="goBackToApp()" style="background: #007aff; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer;">← Back to Purchase</button>
-    </div>
-    <h1>Terms of Service</h1>
-    <div class="last-updated">Last Updated: April 11, 2026</div>
 
-    <p>Welcome to Electrician Exam Prep ("we," "our," or "us"). By downloading, accessing, or using our mobile application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, please do not use the App.</p>
+<div style="text-align: left; margin-top: 20px; margin-bottom: 10px;">
+    <button class="back-btn" onclick="goBackToApp()">← Back to App</button>
+</div>
 
-    <h2>1. Description of Service</h2>
-    <p>Electrician Exam Prep provides practice questions, detailed explanations, and progress tracking for individuals preparing for electrician licensing exams (including NEC 2023). The App offers both free and paid subscription plans (monthly or lifetime).</p>
+<h1>Terms of Service</h1>
+<div class="last-updated">Last Updated: April 11, 2026</div>
 
-    <h2>2. Account Registration</h2>
-    <p>You may use the App without an account for limited features. To access full functionality (including progress sync, mistakes book, and all questions), you must create an account. You are responsible for maintaining the confidentiality of your login credentials.</p>
+<p>Welcome to Electrician Exam Prep. By downloading, installing, or using our mobile application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, please do not use the App.</p>
 
-    <h2>3. Payments and Subscriptions</h2>    
-    <p>All paid plans are processed through Apple's App Store In-App Purchase system. By purchasing a subscription, you agree to pay the recurring fees (if monthly) or the one-time fee (if lifetime). Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period. You can manage or cancel your subscription at any time through your Apple ID account settings. Payments are generally non-refundable, except as required by applicable law or as determined by Apple's refund policies.</p>
+<h2>1. License</h2>
+<p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for your personal, non-commercial use.</p>
 
-    <h2>4. Refund Policy</h2>    
-    <p>Refunds for in-app purchases are handled exclusively by Apple. To request a refund, please visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">Apple's Problem Reports page</a> and follow the instructions. You may also contact Apple Support for assistance. We do not process refunds directly.</p>
-   
-    <h2>5. User Conduct</h2>
-    <p>You agree not to misuse the App, including but not limited to: reverse engineering, scraping questions, attempting to bypass payment restrictions, or using the App for any unlawful purpose.</p>
+<h2>2. Purchases</h2>
+<p>The App is a paid application. All purchases are final. Refunds are handled by Apple according to the App Store refund policy.</p>
 
-    <h2>6. Intellectual Property</h2>
-    <p>All content, including practice questions, explanations, and software code, are owned by us or our licensors. You may not reproduce, distribute, or create derivative works without permission.</p>
+<h2>3. Acceptable Use</h2>
+<p>You agree not to:</p>
+<ul>
+    <li>Copy, modify, or distribute the App or its content.</li>
+    <li>Reverse engineer, decompile, or disassemble the App.</li>
+    <li>Use the App for any unlawful purpose.</li>
+    <li>Share your account credentials with others.</li>
+</ul>
 
-    <h2>7. Disclaimer of Warranties</h2>
-    <p>The App is provided "as is" and "as available" without warranties of any kind. We do not guarantee that you will pass any exam by using this App. The questions and explanations are for study purposes only and may not reflect actual exam content.</p>
+<h2>4. Intellectual Property</h2>
+<p>All content in the App, including questions, explanations, and design, is owned by us or our licensors and protected by copyright laws.</p>
 
-    <h2>8. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of the App, including but not limited to exam failure or loss of data.</p>
+<h2>5. Disclaimer</h2>
+<p>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will be error-free or that the content is fully accurate. Use of the App is at your own risk.</p>
 
-    <h2>9. Governing Law</h2>
-    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States.</p>
+<h2>6. Limitation of Liability</h2>
+<p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the App.</p>
 
-    <h2>10. Changes to Terms</h2>
-    <p>We may update these Terms from time to time. We will notify you of any material changes via the App or email. Your continued use after changes constitutes acceptance of the new Terms.</p>
+<h2>7. Changes to Terms</h2>
+<p>We may update these Terms from time to time. Continued use of the App after changes means you accept the updated Terms.</p>
 
-    <h2>11. Contact Us</h2>
-    <p>If you have any questions about these Terms, please contact us at: <strong>lord_huang@nobalead.com</strong></p>
-
-
+<h2>8. Contact Us</h2>
+<p>If you have questions about these Terms, please contact us at: <strong>lord_huang@nobalead.com</strong>.</p>
 
 <script>
 function goBackToApp() {
-    // 跳回主页面，并在 URL 中添加参数 openModal=true
-    window.location.href = 'index.html?openModal=true';
+    if (typeof plus !== 'undefined' && plus.webview) {
+        var current = plus.webview.currentWebview();
+        if (current) {
+            current.close();
+            return;
+        }
+    }
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = 'index.html';
+    }
 }
 </script>
-    
+
 </body>
 </html>
